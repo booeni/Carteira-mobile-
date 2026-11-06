@@ -1,0 +1,10 @@
+{
+  "name": "Fluxo — Controle de Dinheiro",
+  "short_name": "Fluxo",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#101112",
+  "theme_color": "#101112",
+  "description": "Controle local de valores e gorjetas",
+  "icons": []
+}

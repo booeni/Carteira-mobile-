@@ -1,0 +1,27 @@
+FLUXO — CONTROLE DE DINHEIRO
+
+O que inclui
+- Lançamentos de dinheiro/caixa, gorjetas, códigos e outros.
+- Períodos: hoje, semana, mês e todo o período.
+- Gráfico diário/semanal/mensal e filtro por categoria.
+- Histórico com exclusão de lançamentos.
+- Banco de dados local do navegador (IndexedDB).
+- Funciona offline depois de instalado/carregado.
+- Exportação de backup em JSON.
+
+COMO USAR NO CELULAR ANDROID
+1. Extraia o ZIP.
+2. Hospede a pasta em um endereço HTTPS (por exemplo, GitHub Pages) ou abra por um servidor local compatível.
+3. Acesse o endereço pelo Chrome.
+4. Toque no menu ⋮ e escolha "Instalar app" ou "Adicionar à tela inicial".
+5. Abra pelo ícone Fluxo.
+
+IMPORTANTE
+- Para instalação PWA e modo offline, use HTTPS; abrir o index.html diretamente pelo gerenciador de arquivos pode limitar o banco/offline.
+- Os dados ficam no armazenamento do navegador daquele aparelho. Não há conta, nuvem ou sincronização.
+- Limpar os dados do navegador pode apagar os registros. Use o botão ⇩ para exportar backups regularmente.
+- O backup exportado é JSON; guarde-o em local seguro.
+- Categorias e descrições são flexíveis. A categoria "Código" permite registrar qualquer código/identificador na descrição.
+
+PRIVACIDADE
+O app não envia seus lançamentos para nenhum servidor. O banco IndexedDB é local ao navegador/dispositivo.

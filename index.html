@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#101112">
+<meta name="description" content="Controle pessoal de valores, gorjetas e caixa.">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="stylesheet" href="style.css">
+<title>Fluxo — Controle</title>
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <div><div class="eyebrow">CONTROLE FINANCEIRO</div><h1>Fluxo<span>.</span></h1></div>
+    <button id="exportBtn" class="icon-btn" aria-label="Exportar dados" title="Exportar backup">⇩</button>
+  </header>
+
+  <nav class="tabs" aria-label="Período">
+    <button class="tab active" data-period="day">Hoje</button>
+    <button class="tab" data-period="week">Semana</button>
+    <button class="tab" data-period="month">Mês</button>
+    <button class="tab" data-period="all">Tudo</button>
+  </nav>
+
+  <section class="hero">
+    <div class="muted">TOTAL NO PERÍODO</div>
+    <div class="total" id="periodTotal">R$ 0,00</div>
+    <div class="hero-bottom"><span id="periodLabel">Hoje</span><span id="entryCount">0 lançamentos</span></div>
+  </section>
+
+  <section class="stats">
+    <article class="stat"><span>Gorjetas</span><strong id="tipsTotal">R$ 0,00</strong></article>
+    <article class="stat"><span>Outras entradas</span><strong id="otherTotal">R$ 0,00</strong></article>
+    <article class="stat"><span>Média por dia</span><strong id="averageTotal">R$ 0,00</strong></article>
+  </section>
+
+  <section class="section">
+    <div class="section-head"><div><div class="eyebrow">VISÃO GERAL</div><h2>Movimentação</h2></div>
+      <select id="chartMode" aria-label="Tipo de gráfico"><option value="bar">Barras</option><option value="line">Linha</option></select>
+    </div>
+    <div class="chart-wrap"><canvas id="chart" height="170"></canvas><div id="chartEmpty" class="chart-empty hidden">Adicione lançamentos para visualizar o gráfico.</div></div>
+    <div class="chart-legend"><span><i></i> Total registrado</span><span id="chartRange"></span></div>
+  </section>
+
+  <section class="section">
+    <div class="section-head"><div><div class="eyebrow">REGISTROS</div><h2>Histórico</h2></div>
+      <select id="filterType" aria-label="Filtrar categoria"><option value="all">Todas</option><option value="tip">Gorjetas</option><option value="cash">Dinheiro / caixa</option><option value="code">Código</option><option value="other">Outros</option></select>
+    </div>
+    <div id="entries" class="entries"></div>
+    <div id="empty" class="empty">Nenhum lançamento neste período.<br><span>Use o botão + para começar.</span></div>
+  </section>
+</div>
+
+<button class="add-fab" id="openForm" aria-label="Adicionar lançamento">+</button>
+
+<div class="modal hidden" id="modal">
+ <div class="sheet">
+  <div class="sheet-handle"></div>
+  <div class="sheet-head"><div><div class="eyebrow">NOVO REGISTRO</div><h2>Adicionar valor</h2></div><button class="close" id="closeForm">×</button></div>
+  <form id="entryForm">
+   <label>Valor recebido</label>
+   <div class="money-input"><span>R$</span><input id="amount" type="number" min="0.01" step="0.01" inputmode="decimal" placeholder="0,00" required></div>
+   <label>Categoria</label>
+   <div class="category-grid">
+    <button type="button" class="cat selected" data-type="cash"><b>▣</b>Dinheiro / caixa</button>
+    <button type="button" class="cat" data-type="tip"><b>✳</b>Gorjeta</button>
+    <button type="button" class="cat" data-type="code"><b>⌗</b>Código</button>
+    <button type="button" class="cat" data-type="other"><b>＋</b>Outro</button>
+   </div>
+   <label for="note">Descrição <span class="optional">opcional</span></label>
+   <input id="note" class="text-input" maxlength="60" placeholder="Ex.: turno da noite, mesa 12...">
+   <label for="date">Data</label>
+   <input id="date" class="text-input" type="date" required>
+   <button class="save-btn" type="submit">Salvar lançamento</button>
+  </form>
+ </div>
+</div>
+<div class="toast" id="toast"></div>
+<script src="app.js"></script>
+</body></html>
